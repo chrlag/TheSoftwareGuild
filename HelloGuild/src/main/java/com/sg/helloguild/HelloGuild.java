@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sg.abeggining;
+package com.sg.helloguild;
 
 /**
  *
- * @author chris
+ * @author Chris
  */
-public class App {
+public class HelloGuild {
+    
+    public static void main(String[] args){
+        System.out.println("Hello, Guild!");
+    }
     
 }

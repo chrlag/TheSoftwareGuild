@@ -9,7 +9,7 @@ package com.sg.helloworld;
  *
  * @author Chris
  */
-public class App {
+public class HelloWorld {
     
     public static void main(String[] args){
         System.out.println("Hello World!");
