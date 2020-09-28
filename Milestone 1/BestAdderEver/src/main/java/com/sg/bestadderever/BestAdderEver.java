@@ -14,19 +14,9 @@ import java.util.Scanner;
 public class BestAdderEver {
     public static void main(String[] args){
         
-        int number1, number2, number3;
+        int number1 = 5, number2 = 3, number3 = 5;
         int sum;
-        
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Please type the first number");
-        number1 = Integer.parseInt(sc.nextLine());
-        
-        System.out.println("Please type the second number");
-        number2 = Integer.parseInt(sc.nextLine());
-        
-        System.out.println("Please type the third number");
-        number3 = Integer.parseInt(sc.nextLine());
+    
         
         System.out.println("Number 1 is: " + number1);
         System.out.println("Number 2 is: " + number2);
