@@ -24,7 +24,6 @@ public class HealthyHearts {
         
         System.out.println("Your maximum heart rate should be " + max + " beats per minute");
         System.out.println("Your target HR Zone is " + 0.5*max + " - " + 0.85*max + " beats per minute");
-        
     }
     
 }
