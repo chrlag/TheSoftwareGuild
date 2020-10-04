@@ -12,15 +12,8 @@ import java.util.Scanner;
  * @author Chris
  */
 public class Factorizor {
-    public static void main(String[] args){
-        
-        int num = selectNumber();
-        
-        factorize(num);
-
-    }
     
-    public static int selectNumber(){
+    public int selectNumber(){
         
         Scanner input = new Scanner(System.in);
         
@@ -32,7 +25,7 @@ public class Factorizor {
         return number;
     }
     
-    public static void factorize(int num){
+    public void factorize(int num){
         
         int count = 0;
         System.out.println("The factors of " + num + " are");
@@ -46,7 +39,7 @@ public class Factorizor {
         isPrime(count, num);
     }
     
-    public static void isPerfect(int count, int num){
+    public void isPerfect(int count, int num){
         if (count == num){
             System.out.println(num + " is a perfect number");
         } else {
@@ -54,7 +47,7 @@ public class Factorizor {
         }
     }
     
-    public static void isPrime(int count, int num){
+    public void isPrime(int count, int num){
         if (count == 1){
             System.out.println(num + " is a prime number");
         } else{
