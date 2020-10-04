@@ -12,25 +12,8 @@ import java.util.Scanner;
  * @author Chris
  */
 public class InterestCalculator {
-    public static void main(String[] args){
-       
-        double annualRate = inputUser("Please type the annual interest rate");
-        
-        double amount = inputUser("Please type the initial amount of principal");
-        
-        int years = inputUser("Please type the number of years the money is to stay in the fund.");
-        
-        int compoundPeriod = inputUser("Please choose the compound period. "
-                + "Type 0,1,2 for quarterly, monthly, daily");
-        
-        double compoundPeriodFixed = changeCompoundPeriod(compoundPeriod);
-        double interest = calculateInterest(compoundPeriodFixed, annualRate);
-        outputPerYear(interest, years, amount, compoundPeriodFixed);
-        
-        
-    }
-    
-    public static int inputUser(String prompt){
+
+    public int inputUser(String prompt){
         
         Scanner input = new Scanner(System.in);
         
@@ -40,7 +23,7 @@ public class InterestCalculator {
         return value;
     }
     
-    public static double changeCompoundPeriod(int compoundPeriod){
+    public double changeCompoundPeriod(int compoundPeriod){
         double value;
         switch (compoundPeriod){
             case 0:
@@ -58,7 +41,7 @@ public class InterestCalculator {
         return value;
     }
     
-    public static double calculateInterest(double compoundPeriod, double annualRate){
+    public double calculateInterest(double compoundPeriod, double annualRate){
         
         double interest = 1.0 + (annualRate/compoundPeriod)/100.0;
         
@@ -66,7 +49,7 @@ public class InterestCalculator {
     }
 
     
-    public static double calculateFinalAmount(double amount, double interest, double compoundPeriod){
+    public double calculateFinalAmount(double amount, double interest, double compoundPeriod){
         
         double finalAmount;
         
@@ -80,7 +63,7 @@ public class InterestCalculator {
         
     }
     
-    public static void outputPerYear(double interest, int years, double amount, double compoundPeriodFixed){
+    public void outputPerYear(double interest, int years, double amount, double compoundPeriodFixed){
         double finalAmount = amount;
         for (int i = 0; i < years; i++){
             System.out.println("Year number: " + (i + 1));
