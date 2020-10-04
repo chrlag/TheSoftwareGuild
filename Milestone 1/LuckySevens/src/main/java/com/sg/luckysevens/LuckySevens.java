@@ -13,29 +13,8 @@ import java.util.Scanner;
  * @author Chris
  */
 public class LuckySevens {
-    public static void main(String[] args){
-        
-        int dollars = inputUser("How many dollars you want to play?");
-        int count = 0;
-        int maxCount = 0;
-        int maxDollars = dollars;
-        
-        while(dollars > 0){
-            dollars = play(dollars); 
-            count++;
-            
-            if (dollars > maxDollars){
-                maxDollars = dollars;
-                maxCount = count;
-            }
-        }
-        
-        System.out.println("You are broke after " + count + " rolls.");
-        System.out.println("You should have quit after " + maxCount + " rolls when"
-                + " you had $" + maxDollars);
-    }
     
-    public static int inputUser(String prompt){
+    public int inputUser(String prompt){
         
         Scanner input = new Scanner(System.in);
         System.out.println(prompt);
@@ -44,7 +23,7 @@ public class LuckySevens {
         return dollars;
     }
     
-    public static int play(int dollars){
+    public int play(int dollars){
         
         Random rd = new Random();
         int firstDice = rd.nextInt(6) + 1;
