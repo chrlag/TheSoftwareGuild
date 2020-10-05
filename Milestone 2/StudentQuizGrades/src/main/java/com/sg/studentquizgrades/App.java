@@ -25,9 +25,15 @@ public class App {
         ClassIO reader = new ClassIO();
         Random rd = new Random();
         
-        int userInput, age, id;
+        int userInput, age, id, classSize = 0, stuTotal = 0;
         String name;
         int numOfQuiz = rd.nextInt(5) + 1;
+        double classAverage = 0;
+        double stuAverage = 0;
+        double max = 0;
+        double min = 100;
+        List<String> maxGradeStudents = new ArrayList<>();
+        List<String> minGradeStudents = new ArrayList<>();
         
         reader.print("Welcome to the System!");
         
@@ -123,9 +129,53 @@ public class App {
                     break;
             }
             
+        } while(userInput != 0);  
+        
             
-            
-            
-        } while(userInput != 0);         
+        if (students.isEmpty()){
+            reader.print("There are no Students!");
+        } else{
+
+            for (String key : quizGrades.keySet()){
+                int stuCurrGrade = 0;
+                ArrayList<Integer> currAverageGrade = quizGrades.get(key);
+                for (Integer currGrade : currAverageGrade){
+                    stuCurrGrade += currGrade;
+                }
+                stuAverage = stuCurrGrade / currAverageGrade.size();
+                                      
+                if (stuAverage > max){
+                    maxGradeStudents.clear();
+                    maxGradeStudents.add(key);
+                    max = stuAverage;
+                } else if (stuAverage == max){
+                    maxGradeStudents.add(key);
+                }
+                    
+                if (stuAverage < min){
+                    minGradeStudents.clear();
+                    minGradeStudents.add(key);
+                    min = stuAverage;
+                } else if (stuAverage == min){
+                    minGradeStudents.add(key);
+                }                   
+                    
+                stuTotal += stuAverage;
+                classSize++;
+            }
+                
+            classAverage = stuTotal / classSize;
+                
+            reader.print("The average class quiz score is " + classAverage);
+            reader.print("The Student(s) with the max grades is(are): ");
+            for (String maxStudent : maxGradeStudents){
+                reader.print(maxStudent);
+            }
+                
+            reader.print("The Student(s) with the min grades is(are): ");
+            for (String minStudent : minGradeStudents){
+                reader.print(minStudent);
+            }                
+        }        
     }
 }
