@@ -38,7 +38,7 @@ public class ClassIO implements UserIO{
         do{
             print("The number must be between " + min + " and " + max);
             number = Double.parseDouble(input.nextLine());
-        } while(number <= min || number >= max);
+        } while(number < min || number > max);
         
         return number;
     }
@@ -56,7 +56,7 @@ public class ClassIO implements UserIO{
         do{
             print("The number must be between " + min + " and " + max);
             number = Float.parseFloat(input.nextLine());
-        } while(number <= min || number >= max);
+        } while(number < min || number > max);
         
         return number;
     }
@@ -74,7 +74,7 @@ public class ClassIO implements UserIO{
         do{
             print("The number must be between " + min + " and " + max);
             number = Integer.parseInt(input.nextLine());
-        } while(number <= min || number >= max);
+        } while(number < min || number > max);
         
         return number;
     }
