@@ -14,21 +14,18 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args){
         
-        Scanner input = new Scanner(System.in);
+        ClassIO reader = new ClassIO();
         int userInput;
         float x = 0, y = 0;
         float result = 0;
         
         do{
-            System.out.println("Welcome to calculator!");
-            System.out.println("Press 1/2/3/4 for addition/subtraction/multiplication/division");
-            System.out.println("Press 0 to exit");
-            
-            userInput = Integer.parseInt(input.nextLine());
+            reader.print("Welcome to calculator!");
+            userInput = reader.readInt("Press 1/2/3/4 for addition/subtraction/multiplication/division or press 0 to exit");
+
             if (userInput != 0){
-                System.out.println("Please type your two numbers");
-                x = Float.parseFloat(input.nextLine());
-                y = Float.parseFloat(input.nextLine());
+                x = reader.readFloat("Please type your first number");
+                y = reader.readFloat("Please type your second number");
             }
             
             switch (userInput){
@@ -47,15 +44,15 @@ public class App {
                     result = SimpleCalculator.division(x, y);
                     break;
                 default:
-                    System.out.println("Invalid number! Please type again!");
+                    reader.print("Invalid number! Please type again!");
             }
             
-            System.out.println("Result = " + result);
+            reader.print("Result = " + result);
             
         } while (userInput != 0);
 
         
-        System.out.println("Thank you for using our calcluator");
+        reader.print("Thank you for using our calcluator");
 
     }
     
