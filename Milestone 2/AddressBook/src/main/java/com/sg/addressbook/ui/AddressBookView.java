@@ -105,6 +105,7 @@ public class AddressBookView {
             io.print(address.getFirstName() + " " + address.getLastName());
             io.print(address.getStreetAddress());
             io.print(address.getCity() + ", " + address.getPostalCode());
+            io.print("");
         } else {
             io.print("There is no such address");
         }
