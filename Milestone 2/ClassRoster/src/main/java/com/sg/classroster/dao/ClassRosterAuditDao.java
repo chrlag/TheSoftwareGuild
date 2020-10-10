@@ -9,14 +9,9 @@ package com.sg.classroster.dao;
  *
  * @author Chris
  */
-public class ClassRosterDaoException extends Exception{
+public interface ClassRosterAuditDao {
     
-    public ClassRosterDaoException(String message){
-        super(message);
-    }
-    
-    public ClassRosterDaoException(String message, Throwable cause){
-        super(message, cause);
-    }
+    public void writeAuditEntry(String entry) throws
+            ClassRosterPersistanceException;
     
 }
