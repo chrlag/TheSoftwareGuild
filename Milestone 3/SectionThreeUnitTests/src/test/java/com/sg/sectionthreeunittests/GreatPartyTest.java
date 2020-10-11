@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class GreatPartyTest {
     
-    GreatParty party = new GreatParty();
+    private GreatParty party = new GreatParty();
     
     public GreatPartyTest() {
     }
