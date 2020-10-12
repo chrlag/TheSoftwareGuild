@@ -1,2 +1,2 @@
-Eleni::Papantoniou::Venizelou 36::Kavala::65403
-Chris::Laganas::Litochorou 11::Thessaloniki::65404
+Katerina::Lagana::Litochorou 11::Thessaloniki::65423
+Chris::Laganas::Mikras Asias 45::Kavala::65404
