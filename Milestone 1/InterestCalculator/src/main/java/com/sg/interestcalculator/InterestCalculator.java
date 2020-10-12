@@ -5,6 +5,8 @@
  */
 package com.sg.interestcalculator;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 /**
@@ -12,65 +14,68 @@ import java.util.Scanner;
  * @author Chris
  */
 public class InterestCalculator {
+    
+    private static final BigDecimal ONE = new BigDecimal("1");
+    private static final BigDecimal HUNDRED = new BigDecimal("100");
 
-    public int inputUser(String prompt){
+    public String inputUser(String prompt){
         
         Scanner input = new Scanner(System.in);
         
         System.out.println(prompt);
-        int value = Integer.parseInt(input.nextLine());
-        
+        String value = input.nextLine();  
         return value;
     }
     
-    public double changeCompoundPeriod(int compoundPeriod){
-        double value;
+    public BigDecimal changeCompoundPeriod(int compoundPeriod){
+        BigDecimal value;
         switch (compoundPeriod){
             case 0:
-                value = 4.0;
+                value = new BigDecimal("4");
                 break;
             case 1:
-                value = 12.0;
+                value = new BigDecimal("12");
                 break;
             case 2: 
-                value = 365.0;
+                value = new BigDecimal("365");
                 break;
             default:
-                value = compoundPeriod;  
+                value = new BigDecimal(compoundPeriod);  
         } 
         return value;
     }
     
-    public double calculateInterest(double compoundPeriod, double annualRate){
+    public BigDecimal calculateInterest(BigDecimal compoundPeriod, BigDecimal annualRate){
         
-        double interest = 1.0 + (annualRate/compoundPeriod)/100.0;
+        BigDecimal interest = ONE.add((annualRate.divide(compoundPeriod, 2, RoundingMode.HALF_UP)).divide(HUNDRED, 2, RoundingMode.HALF_UP));
         
         return interest;
     }
 
     
-    public double calculateFinalAmount(double amount, double interest, double compoundPeriod){
+    public BigDecimal calculateFinalAmount(BigDecimal amount, BigDecimal interest, BigDecimal compoundPeriod){
         
-        double finalAmount;
+        BigDecimal finalAmount;
         
-        for (int i = 1; i <= compoundPeriod; i++){
-            amount *= interest;
-        }
-        
+        for (int i = 1; i <= compoundPeriod.intValue(); i++){
+            //amount *= interest;
+            amount = amount.multiply(interest);
+        } 
         finalAmount = amount;
     
         return finalAmount;
         
     }
     
-    public void outputPerYear(double interest, int years, double amount, double compoundPeriodFixed){
-        double finalAmount = amount;
-        for (int i = 0; i < years; i++){
+    public void outputPerYear(BigDecimal interest, BigDecimal years, BigDecimal amount, BigDecimal compoundPeriodFixed){
+        BigDecimal finalAmount = amount;
+        for (int i = 0; i < years.intValue(); i++){
             System.out.println("Year number: " + (i + 1));
-            System.out.println("The principal at the beginning of the year is: " + finalAmount);
+            System.out.println("The principal at the beginning of the year is: " + finalAmount.setScale(2, RoundingMode.HALF_UP));
             finalAmount = calculateFinalAmount(finalAmount, interest, compoundPeriodFixed);
-            System.out.println("The total amount of interest earned for the year is: " + (finalAmount - amount));
-            System.out.println("The principal at the end of the year is: " + finalAmount);
+            System.out.println("The total amount of interest earned for the year is: " 
+                    + (finalAmount.subtract(amount)).setScale(2, RoundingMode.HALF_UP));
+            System.out.println("The principal at the end of the year is: " + finalAmount.setScale(2, RoundingMode.HALF_UP));
         }
 
         
