@@ -41,8 +41,8 @@ public class CommonEndTest {
 
     @Test
     public void testSameFirst() {
-        int[] array1 = {1, 2, 3, 4};
-        int[] array2 = {1, 2, 3, 3};
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {7, 3};
         
         assertTrue(common.commonEnd(array1, array2));
     }
@@ -51,6 +51,13 @@ public class CommonEndTest {
     public void testSameLast(){
         int[] array1 = {2, 3, 5};
         int[] array2 = {1, 2, 4, 5};
+        assertTrue(common.commonEnd(array1, array2));
+    }
+    
+    @Test
+    public void testSameFirstLast(){
+        int[] array1 = {1, 2, 2};
+        int[] array2 = {1, 3};
         assertTrue(common.commonEnd(array1, array2));
     }
     
@@ -70,8 +77,8 @@ public class CommonEndTest {
     
     @Test
     public void testFalse(){
-        int[] array1 = {2, 3, 5};
-        int[] array2 = {1, 2, 3};
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {7, 3, 2};
         assertFalse(common.commonEnd(array1, array2));
     }
     
