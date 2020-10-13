@@ -40,11 +40,45 @@ public class DoubleXTest {
     }
 
     @Test
-    public void testSomeMethod() {
-          
-        
-        
-        
+    public void testFirstX() {
+        String string = "axxbb";
+        assertTrue(x.doubleX(string));
+    }
+    
+    @Test
+    public void testSecondX(){
+        String string = "axaxxax";
+        assertFalse(x.doubleX(string));
+    }
+    
+    @Test
+    public void testAllX(){
+        String string = "xxxxx";
+        assertTrue(x.doubleX(string));
+    }
+    
+    @Test
+    public void testNoX(){
+        String string = "aaaaaa";
+        assertFalse(x.doubleX(string));
+    }
+    
+    @Test
+    public void testEmptyString(){
+        String string = "";
+        assertFalse(x.doubleX(string));
+    }
+    
+    @Test
+    public void testNullString(){
+        String string = null;
+        assertFalse(x.doubleX(string));
+    }
+    
+    @Test
+    public void testCapitalX(){
+        String string = "AXXAAAAA";
+        assertTrue(x.doubleX(string));
     }
     
 }

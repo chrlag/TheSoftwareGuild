@@ -18,6 +18,24 @@ public class DoubleX {
     // doubleX("axaxxax") -> false
     // doubleX("xxxxx") -> true
     public boolean doubleX(String str) {
-        throw new UnsupportedOperationException("Not implemented");
+        
+        boolean flag = false;
+        
+        if ((str == null) || str.length() == 0){
+            return flag;
+        } else {
+            str = str.toLowerCase();
+            boolean firstX = true;
+            for (int i = 0; i < str.length() - 1; i++){
+                char c = str.charAt(i);
+                if (c == 'x' && firstX){
+                    if (str.charAt(i + 1) == 'x'){
+                        flag = true;
+                    }
+                    firstX = false;
+                }
+            }
+            return flag;
+        }
     }    
 }
