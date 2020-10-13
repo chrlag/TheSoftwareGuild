@@ -48,3 +48,7 @@ Thumbs.db
 *.mov
 *.wmv
 
+/Milestone 3/SectionThreeUnitTests/nbproject/
+/Milestone 2/ClassRoster/nbproject/
+/Milestone 2/AddressBook/nbproject/
+/Milestone 4/SectionFourUnitTests/nbproject/
