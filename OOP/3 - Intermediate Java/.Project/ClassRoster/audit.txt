@@ -1,0 +1,7 @@
+
+2020-10-14T20:35:59.020891 : createStudent: ID: 0001|Name: Joe Smith|Cohort: Java
+2020-10-14T20:36:55.557767700 : removeStudent: 0001
+2020-10-14T20:42:58.591567700 : createStudent: ID: 0002 |Name: Sally Jones |Cohort: .NET
+2020-10-14T20:44:39.168480300 : createStudent: ID: 0003 |Name: 2 3 |Cohort: 11
+2020-10-14T20:44:57.043220300 : removeStudent: 0003
+2020-10-14T20:45:39.353096100 : removeStudent: 0002

@@ -49,6 +49,12 @@ public class Student {
     public void setCohort(String cohort) {
         this.cohort = cohort;
     }
+    
+    @Override
+    public String toString(){
+        return "ID: " + studentId + " |Name: " + firstName + " " + lastName + 
+                " |Cohort: " + cohort;
+    }
 
     @Override
     public int hashCode() {
